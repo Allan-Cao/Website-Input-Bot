@@ -3,26 +3,20 @@ from selenium import webdriver
 import random
 import string
 from faker import Faker
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
-fake = Faker("en_CA")
-
+fake = Faker("en_CA") # Change this to match your locale
 
 x = 0
 y = 1
-def id_generator(size=20, chars=string.ascii_uppercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
+
 def gen():
     gens = ['male', 'female', 'Non-binary']
     y = random.randint(1,3)
     return gens[y-1]
-def seq():
-    gens = ['Mothers maiden name', 'Drivers licence number', 'Passport number']
-    y = random.randint(1,3)
-    return gens[y-1]
-driver = webdriver.Chrome()
-while x<2000:
-    driver.get("https://membership.spotifyuser.validationsupport.88d9c83k3-billing.com/subscription-key-1876387627862/login.php")
+
+driver = webdriver.Chrome() # Change this to the one you are using.
+
+while x<10: #CHANGE THIS
+    driver.get("WEBSITE NAME")
     user = driver.find_element_by_id("login-username")
     pas = driver.find_element_by_id("login-password")
     subm = driver.find_element_by_id("g-recaptcha-button")
