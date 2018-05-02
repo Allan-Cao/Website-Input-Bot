@@ -15,8 +15,15 @@ program scam.py is a bare-bone template.
 
 Change lines 20-72 to suit your needs.
 Inspect element and select the input box. 
->> driver.find_element_by_name(" INSERT THE NAME OF THE ELEMENT HERE")
->> driver.find_element_by_id(" INSERT THE NAME OF THE ELEMENT HERE")
+
+'''
+driver.find_element_by_name(" INSERT THE NAME OF THE ELEMENT HERE")
+'''
+
+'''
+driver.find_element_by_id(" INSERT THE NAME OF THE ELEMENT HERE")
+'''
+
 As well, change the submit buttons to suit your needs.
 ## Requirements:
 Selenium
@@ -26,7 +33,9 @@ Chrome web driver for Selenium
 
 ## Usage:
 
->> Python fake.py
+'''
+Python fake.py
+'''
 
 ## Note
 
