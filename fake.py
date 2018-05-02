@@ -3,34 +3,27 @@ from selenium import webdriver
 import random
 import string
 from faker import Faker
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-fake = Faker("en_CA")
-
+fake = Faker("en_CA") # I'm in Canada
 
 x = 0
 y = 1
-def id_generator(size=20, chars=string.ascii_uppercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
+
+# Gender Generator (use for what Faker can't generate)
 def gen():
-    gens = ['male', 'female', 'Non-binary']
-    y = random.randint(1,3)
+    gens = ['male', 'female', 'Non-binary'] # Change this based on your website
+    y = random.randint(1,len(gens))
     return gens[y-1]
-def seq():
-    gens = ['Mothers maiden name', 'Drivers licence number', 'Passport number']
-    y = random.randint(1,3)
-    return gens[y-1]
-driver = webdriver.Chrome()
-while x<2000:
-    driver.get("https://membership.spotifyuser.validationsupport.88d9c83k3-billing.com/subscription-key-1876387627862/login.php")
-    user = driver.find_element_by_id("login-username")
+driver = webdriver.Chrome() # Change to your web driver
+while x<10: #Change to how many inputs you want 
+    driver.get("INSERT-YOUR-WEBSITE-HERE")
+    user = driver.find_element_by_id("login-username") 
     pas = driver.find_element_by_id("login-password")
     subm = driver.find_element_by_id("g-recaptcha-button")
     user.send_keys(fake.ascii_email())
     pas.send_keys(fake.password())
     subm.click()
-    x = x+1
-    print('Logged in ' + str(x) + ' times')
+    
     a = driver.find_element_by_name("firstname")
     b = driver.find_element_by_name("lastname")
     c = driver.find_element_by_name("address")
@@ -61,6 +54,7 @@ while x<2000:
     m.send_keys(fake.random_number(9))
     #n.send_keys(fake.country())
     o.click()
+    
 
     p = driver.find_element_by_name("cardholder")
     q = driver.find_element_by_id("cardnumber")
@@ -76,3 +70,5 @@ while x<2000:
     t.send_keys(fake.credit_card_security_code(card_type=None))
     u.click()
     
+    x = x+1
+    print('Sent a profile ' + str(x) + ' times!')
